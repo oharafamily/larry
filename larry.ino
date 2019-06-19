@@ -145,7 +145,7 @@ void loop()
     while(inches_from_obstical() < back_up_distance) {
         backward(reverse_speed);
     }
-    // Turn Right....
+    // Turn Right
     for(int i = 0; i<=5; i++){
         right(right_speed);
     }
