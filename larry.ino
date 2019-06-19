@@ -132,15 +132,19 @@ void stop()//
 
 void loop()
 {
-  while(inches_from_obstical() > 5){
-    forward(200);
-    delay(100);
-  }
-  while(inches_from_obstical() < 5) {
-    for(int i = 0; i<=5; i++){
-      backward(100);
-      right(100)  ;
+    int forward_speed = 350;
+    int reverse_speed = 100;
+    int right_speed = 100;
+    // As long as we're 5" away from an obstical move forward
+    while(inches_from_obstical() > 5){
+        forward(forward_speed);
     }
-  }
-  
+    // As long as we're closer to 5" move backwards
+    while(inches_from_obstical() < 5) {
+        backward(reverse_speed);
+    }
+    // Turn right
+    for(int i = 0; i<=5; i++){
+        right(right_speed);
+    }
 }
