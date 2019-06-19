@@ -11,6 +11,13 @@ class MotorRelay {
             _pinI2 = pinI2;
             _pinI3 = pinI3;
             _pinI4 = pinI4;
+            pinMode(pinI1,OUTPUT);
+            pinMode(pinI2,OUTPUT);
+            pinMode(speedpinA,OUTPUT);
+            pinMode(pinI3,OUTPUT);
+            pinMode(pinI4,OUTPUT);
+            pinMode(speedpinB,OUTPUT);
+            
         };
         void forward(int s) {
             analogWrite(_speedPinA,s);//input a simulation value to set the speed
