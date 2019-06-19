@@ -135,15 +135,17 @@ void loop()
     int forward_speed = 350;
     int reverse_speed = 100;
     int right_speed = 100;
+    int minimum_distance_from_obstical = 5;
+    int back_up_distance = 7;
     // As long as we're 5" away from an obstical move forward
-    while(inches_from_obstical() > 5){
+    while(inches_from_obstical() > minimum_distance_from_obstical){
         forward(forward_speed);
     }
     // As long as we're closer to 5" move backwards
-    while(inches_from_obstical() < 5) {
+    while(inches_from_obstical() < back_up_distance) {
         backward(reverse_speed);
     }
-    // Turn right
+    // Turn Right....
     for(int i = 0; i<=5; i++){
         right(right_speed);
     }
