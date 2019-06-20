@@ -13,14 +13,14 @@ class MotorRelay {
             _pinI4 = pinI4;
             pinMode(pinI1,OUTPUT);
             pinMode(pinI2,OUTPUT);
-            pinMode(speedpinA,OUTPUT);
+            pinMode(_speedpinA,OUTPUT);
             pinMode(pinI3,OUTPUT);
             pinMode(pinI4,OUTPUT);
             pinMode(speedpinB,OUTPUT);
             
         };
         void forward(int s) {
-            analogWrite(_speedPinA,s);//input a simulation value to set the speed
+            analogWrite(_speedpinA,s);//input a simulation value to set the speed
             analogWrite(_speedpinB,s);
             digitalWrite(_pinI4,HIGH);//turn DC Motor B move clockwise
             digitalWrite(_pinI3,LOW);
@@ -28,7 +28,7 @@ class MotorRelay {
             digitalWrite(_pinI1,HIGH);
         };
         void backward(int s) {
-            analogWrite(_speedPinA,s);//input a simulation value to set the speed
+            analogWrite(_speedpinA,s);//input a simulation value to set the speed
             analogWrite(_speedpinB,s);
             digitalWrite(_pinI4,LOW);//turn DC Motor B move anticlockwise
             digitalWrite(_pinI3,HIGH);
@@ -36,7 +36,7 @@ class MotorRelay {
             digitalWrite(_pinI1,LOW);
         };
         void left(int s) {
-            analogWrite(_speedPinA,s);//input a simulation value to set the speed
+            analogWrite(_speedpinA,s);//input a simulation value to set the speed
             analogWrite(_speedpinB,s);
             digitalWrite(_pinI4,HIGH);//turn DC Motor B move clockwise
             digitalWrite(_pinI3,LOW);
@@ -44,7 +44,7 @@ class MotorRelay {
             digitalWrite(_pinI1,LOW);
         };
         void right(int s) {
-            analogWrite(_speedPinA,s);//input a simulation value to set the speed
+            analogWrite(_speedpinA,s);//input a simulation value to set the speed
             analogWrite(_speedpinB,s);
             digitalWrite(_pinI4,LOW);//turn DC Motor B move anticlockwise
             digitalWrite(_pinI3,HIGH);
@@ -52,9 +52,9 @@ class MotorRelay {
             digitalWrite(_pinI1,HIGH);
         };
         void stop() {
-            digitalWrite(_speedPinA,LOW);// Unenble the pin, to stop the motor. this should be done to avid damaging the motor. 
+            digitalWrite(_speedpinA,LOW);// Unenble the pin, to stop the motor. this should be done to avid damaging the motor. 
             digitalWrite(_speedpinB,LOW);
             delay(1000);
         
         };
-}
+};

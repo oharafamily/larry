@@ -1,6 +1,6 @@
-class Sonar{
+class Sonar {
     private:
-        int _pingpin
+        int _pingpin;
         long microsecondsToInches(long microseconds) {
         // According to Parallax's datasheet for the PING))), there are 73.746
         // microseconds per inch (i.e. sound travels at 1130 feet per second).
@@ -18,26 +18,27 @@ class Sonar{
         };
 
     public:
-        Sonar(int pingPin){
-            pinMode(pingPin, OUTPUT);
+        Sonar(int pingPin) {
+            _pingpin = pingPin;
+            pinMode(_pingpin, OUTPUT);
         };
         long inches_from_obstical() {
             long duration, inches, cm;
 
             // The PING))) is triggered by a HIGH pulse of 2 or more microseconds.
             // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
-            pinMode(pingPin, OUTPUT);
-            digitalWrite(pingPin, LOW);
+            pinMode(_pingpin, OUTPUT);
+            digitalWrite(_pingpin, LOW);
             delayMicroseconds(2);
-            digitalWrite(pingPin, HIGH);
+            digitalWrite(_pingpin, HIGH);
             delayMicroseconds(5);
-            digitalWrite(pingPin, LOW);
+            digitalWrite(_pingpin, LOW);
 
             // The same pin is used to read the signal from the PING))): a HIGH pulse
             // whose duration is the time (in microseconds) from the sending of the ping
             // to the reception of its echo off of an object.
-            pinMode(pingPin, INPUT);
-            duration = pulseIn(pingPin, HIGH);
+            pinMode(_pingpin, INPUT);
+            duration = pulseIn(_pingpin, HIGH);
 
             // convert the time into a distance
             inches = microsecondsToInches(duration);
@@ -49,4 +50,4 @@ class Sonar{
             Serial.println();
             return inches;
         };
-}
+};
